@@ -1,6 +1,7 @@
 import random
 
-# Tic Tac Toe game by Wallis
+
+# TicTacToe by Wallis
 
 # Prints board
 def print_board(board):
@@ -73,7 +74,7 @@ def full_board(board):
 def player_choice(board):
     while True:
         x = int(input('Choose a position to place your marker(1-9): '))
-        if available_board(board, x):
+        if x in [1, 2, 3, 4, 5, 6, 7, 8, 9] and available_board(board, x):
             return x
         else:
             print('Wrong input, please try again')
@@ -115,6 +116,10 @@ while True:
             print('\n' * 2)
             print('{} Won!'.format(players[0]))
             break
+        if not full_board(game_board):
+            print('\n' * 2)
+            print('Draw!')
+            break
 
         # Second player
         print_board(game_board)
@@ -125,6 +130,10 @@ while True:
             print('\n' * 2)
             print('{} Won!'.format(players[1]))
             break
+        if not full_board(game_board):
+            print('\n' * 2)
+            print('Draw!')
+            break
 
     rpl = replay()
 
@@ -132,5 +141,3 @@ while True:
         continue
     else:
         break
-
-
